@@ -1,14 +1,14 @@
 const express = require("express");
 const path = require("path");
 
-// express 사용
 const app = express();
 
-app.use("/static", express.static(path.resolve(__dirname, "frontend", "static")));
+app.use("/routes", express.static(path.resolve( "src", "routes")));
+
+
 
 app.get("/*", (req, res) => {
-    res.sendFile(path.resolve("public", "index.html"));
+    res.sendFile(path.resolve("src", "index.html"));
 });
 
-// port 생성 서버 실행
-app.listen(process.env.PORT || 3000, () => console.log("Server running ...."));
+app.listen(process.env.PORT || 3030, () => console.log("Server running..."));
